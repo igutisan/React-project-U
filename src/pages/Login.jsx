@@ -28,12 +28,16 @@ function Login() {
     password: "",
   });
 
+
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     for (const user of users) {
@@ -51,7 +55,8 @@ function Login() {
       return;
     }
 
-    console.log("Inicio de sesión exitoso", user);
+     console.log('Inicio de sesión exitoso', user);
+        setError('');
     
 
     
@@ -66,8 +71,8 @@ function Login() {
  
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="w-full max-w-md bg-gray-100 p-6 rounded-lg shadow-lg">
         <h1 className="text-2xl font-semibold text-center mb-4">
           Iniciar Sesión
         </h1>
@@ -95,10 +100,11 @@ function Login() {
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 my-2"
             required
           />
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg mt-4 transition duration-300"
+            className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 rounded-lg mt-4 transition duration-300"
           >
             Ingresar
           </button>
