@@ -4,6 +4,7 @@ import Register from './pages/Register.jsx';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './pages/Dashboard.jsx';
 import ProtectedLayout from './components/protectedLayout.jsx';
+import Card from './pages/Card.jsx';
 
 function AuthPage() {
   
@@ -18,6 +19,7 @@ function AuthPage() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route element={<ProtectedLayout />} >
+            <Route path="/card/:id" element={<Card />} />
              <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
